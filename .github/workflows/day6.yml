@@ -57,11 +57,10 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 587
-        secure: true
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
         from: ${{ secrets.EMAIL_USERNAME }}
         to: pawarsumitp2000@gmail.com
-        subject: "✅ Flask App Deployment Success"
-        body: |
-          Your Flask app was deployed successfully on GitHub Runner.
+        subject: ✅ Flask App Deployment Success
+        body: Your Flask app was deployed successfully on GitHub Runner.
+    
