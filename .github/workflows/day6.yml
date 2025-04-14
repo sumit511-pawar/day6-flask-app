@@ -33,17 +33,19 @@ jobs:
     needs: build
 
     steps:
-    - name: Pull Docker image
-      run: docker pull ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
-
-    - name: Run Docker container
-      run: docker run -d --name flask-container -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+    - name: Pull and run container
+      run: |
+        docker pull ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+        docker run -d --name flask-container -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
     - name: Wait for app to start
       run: sleep 10
 
+    - name: Install curl
+      run: sudo apt-get update && sudo apt-get install -y curl
+
     - name: Validate app is running
-      run: docker exec flask-container curl --fail http://localhost:5000 || exit 1
+      run: curl --fail http://localhost:5000 || exit 1
 
   notify:
     runs-on: ubuntu-latest
@@ -59,12 +61,7 @@ jobs:
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
         from: ${{ secrets.EMAIL_USERNAME }}
-        to: ${{ secrets.EMAIL_USERNAME }}
-        subject: "✅ Flask App Deployment Success - Day 6"
+        to: pawarsumitp2000@gmail.com
+        subject: "✅ Flask App Deployment Success"
         body: |
-          🎉 Congratulations!
-          
-          Your Flask app has been successfully built, pushed to Docker Hub,
-          deployed to a GitHub Runner, and validated on port 5000.
-
-          -- DevOps SRE Challenge Day 6 🚀
+          Your Flask app was deployed successfully on GitHub Runner.
