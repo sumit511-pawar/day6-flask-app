@@ -27,16 +27,18 @@ This project demonstrates a simple yet powerful CI/CD pipeline built using **Git
 
 
 
+---
 
+# Technologies Used
+ Flask (Python)
 
-Technologies Used
-Flask (Python)
+ Docker
 
-Docker
+ GitHub Actions
 
-GitHub Actions
+ SMTP Email Notification
 
-SMTP Email Notification
+---
 
 📌 Key GitHub Actions Jobs
 Build – Builds the Docker image
