@@ -27,54 +27,58 @@ This project demonstrates a simple yet powerful CI/CD pipeline built using **Git
 
 
 
----
 
-# Technologies Used
- Flask (Python)
 
- Docker
+## 🧱 Technologies Used
 
- GitHub Actions
-
- SMTP Email Notification
+- **Flask (Python)**  
+- **Docker**  
+- **GitHub Actions**  
+- **SMTP Email Notification**
 
 ---
 
-📌 Key GitHub Actions Jobs
-Build – Builds the Docker image
+## 📌 Key GitHub Actions Jobs
 
-Deploy – Runs the Flask app inside a container on GitHub Runner
+- **Build** – Builds the Docker image  
+- **Deploy** – Runs the Flask app inside a container on GitHub Runner  
+- **Notify** – Sends an email when deployment is successful  
 
-Notify – Sends an email when deployment is successful
+---
 
-⚠️ Challenges Faced & Solutions
-1. ❌ Docker Container Not Running Properly
-Problem: Docker container wouldn't run the app correctly.
+## ⚠️ Challenges Faced & Solutions
 
-Solution: Exposed correct port in Dockerfile and ensured the CMD executed the Flask app.
+### 1. ❌ Docker Container Not Running Properly
+- **Problem:** Docker container wouldn't run the app correctly.  
+- **Solution:** Exposed correct port in Dockerfile and ensured the `CMD` executed the Flask app.
 
-2. 📧 Email Notification Failure
-Problem: SMTP ssl3_get_record:wrong version number error.
+### 2. 📧 Email Notification Failure
+- **Problem:** SMTP `ssl3_get_record:wrong version number` error.  
+- **Solution:** Used correct secure port (`587`), set `secure: true`, and validated SMTP credentials.
 
-Solution: Used correct secure port (587), set secure: true, and validated SMTP credentials.
+---
 
-📖 What I Learned
-Configuring Docker properly to expose and run services.
+## 📖 What I Learned
 
-Creating multi-step CI/CD pipelines using GitHub Actions.
+- Configuring Docker properly to expose and run services  
+- Creating multi-step CI/CD pipelines using GitHub Actions  
+- Debugging deployment issues through GitHub Actions logs  
+- Integrating email notifications into automated workflows  
 
-Debugging deployment issues through GitHub Actions logs.
+---
 
-Integrating email notifications into automated workflows.
+## 📸 Screenshots
 
-📸 Screenshots
-✅ GitHub Actions logs showing successful build, deploy & notify steps.
+- ✅ GitHub Actions logs showing successful build, deploy & notify steps  
+- 📬 Email notification received after successful deployment  
+- 🐳 Docker container running the Flask app locally  
+- 📁 Committed files in GitHub (`Dockerfile`, `app.py`, `workflow` file)  
 
-📬 Email notification received after successful deployment.
+---
 
-🐳 Docker container running the Flask app locally.
+## 🙏 Special Thanks
 
-📁 Committed files in GitHub (Dockerfile, app.py, workflow file).
+Huge shoutout to **Sagar Utekar Sir** 🙌 for curating such hands-on and practical DevOps challenges. These tasks are helping me build confidence and practical skills in CI/CD and SRE!
 
-🙏 Special Thanks
-Huge shoutout to Sagar Utekar Sir 🙌 for curating such hands-on and practical DevOps challenges. These tasks are helping me build confidence and practical skills in CI/CD and SRE!
+
+
